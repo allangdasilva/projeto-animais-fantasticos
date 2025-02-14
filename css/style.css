@@ -230,3 +230,38 @@ body {
     transform: translate3d(0px, 0px, 0px);
   }
 }
+
+.js .js-accordion dt::after {
+  content: "⬎";
+  margin-left: 10px;
+}
+.js .js-accordion dt.ativo::after {
+  content: "⬏";
+}
+.js .js-accordion dd {
+  display: none;
+}
+.js .js-accordion dd.ativo {
+  display: block;
+  animation: slideDown 0.5s forwards;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+.js .js-scroll {
+  opacity: 0;
+  transform: translate3d(-100px, 0, 0);
+  transition: 0.5s;
+}
+.js .js-scroll.ativo {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
