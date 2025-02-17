@@ -18,6 +18,17 @@
       <nav class="menu" data-menu="smooth">
         <ul>
           <li><a href="#animais">Animais</a></li>
+
+          <li data-dropdown>
+            <a href="sobre.html">Sobre</a>
+            <ul class="dropdown-menu">
+              <li><a href="empresa.html">A Empresa</a></li>
+              <li><a href="equipe.html">Equipe</a></li>
+              <li><a href="socios.html">Sócios</a></li>
+              <li><a href="investidores.html">Investidores</a></li>
+            </ul>
+          </li>
+
           <li><a href="#faq">Faq</a></li>
           <li><a href="#contato">Contato</a></li>
           <li>
@@ -209,7 +220,11 @@
 
       <section class="grid-section contato" data-anime="scroll" id="contato">
         <h2 class="titulo">Contato</h2>
-        <div class="mapa">
+        <div
+          class="mapa"
+          data-tooltip
+          aria-label="Endereço próximo ao estacionamento."
+        >
           <img src="img/mapa.png" width="1200" height="600" />
         </div>
         <ul class="dados">
