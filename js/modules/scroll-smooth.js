@@ -11,7 +11,6 @@ export default class ScrollSmooth {
     }
     this.scrollSmooth = this.scrollSmooth.bind(this);
   }
-  //const links = document.querySelectorAll('[data-menu="smooth"] a[href^="#"]');
   scrollSmooth(event) {
     event.preventDefault();
     const href = event.target.getAttribute("href");
