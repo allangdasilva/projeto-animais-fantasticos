@@ -1,18 +1,32 @@
-export default function initScrollSmooth() {
-  const links = document.querySelectorAll('[data-menu="smooth"] a[href^="#"]');
-  if (links.length) {
-    function scrollSmooth(event) {
-      event.preventDefault();
-      const href = event.target.getAttribute("href");
-      const section = document.querySelector(href);
-      console.log(event.target);
-      section.scrollIntoView({
+export default class ScrollSmooth {
+  constructor(links, options) {
+    this.linksInternos = document.querySelectorAll(links);
+    if (options === undefined) {
+      this.options = {
         behavior: "smooth",
         block: "start",
-      });
+      };
+    } else {
+      this.options = options;
     }
-    links.forEach((ele) => {
-      ele.addEventListener("click", scrollSmooth);
+    this.scrollSmooth = this.scrollSmooth.bind(this);
+  }
+  //const links = document.querySelectorAll('[data-menu="smooth"] a[href^="#"]');
+  scrollSmooth(event) {
+    event.preventDefault();
+    const href = event.target.getAttribute("href");
+    const section = document.querySelector(href);
+    section.scrollIntoView(this.options);
+  }
+  addLinkEvent() {
+    this.linksInternos.forEach((ele) => {
+      ele.addEventListener("click", this.scrollSmooth);
     });
+  }
+  init() {
+    if (this.linksInternos.length) {
+      this.addLinkEvent();
+    }
+    return this;
   }
 }
