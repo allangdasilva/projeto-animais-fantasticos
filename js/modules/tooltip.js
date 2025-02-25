@@ -1,45 +1,45 @@
-export default function initTooltip() {
-  const tooltip = document.querySelector("[data-tooltip]");
-  if (tooltip) {
-    function onMouseOver(event) {
-      const tooltipBox = criarTooltipBox(this);
-      tooltipBox.style.top = event.pageY + "px";
-      tooltipBox.style.left = event.pageX + "px";
-
-      onMouseMove.tooltipBox = tooltipBox;
-      this.addEventListener("mousemove", onMouseMove);
-
-      onMouseLeave.tooltipBox = tooltipBox;
-      onMouseLeave.element = this;
-      this.addEventListener("mouseleave", onMouseLeave);
+export default class Tooltip {
+  constructor(tooltips) {
+    this.tooltips = document.querySelectorAll(tooltips);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onMouseOver = this.onMouseOver.bind(this);
+  }
+  onMouseMove(event) {
+    this.tooltipBox.style.top = event.pageY + 20 + "px";
+    if (event.pageX + 240 > window.innerWidth) {
+      this.tooltipBox.style.left = event.pageX - 190 + "px";
+    } else {
+      this.tooltipBox.style.left = event.pageX + 20 + "px";
     }
-
-    const onMouseLeave = {
-      tooltipBox: "",
-      element: "",
-      handleEvent() {
-        this.tooltipBox.remove();
-        this.element.removeEventListener("mouseleave", onMouseLeave);
-        this.element.removeEventListener("mousemove", onMouseMove);
-      },
-    };
-    const onMouseMove = {
-      tooltipBox: "",
-      handleEvent(event) {
-        this.tooltipBox.style.top = event.pageY + 20 + "px";
-        this.tooltipBox.style.left = event.pageX + 20 + "px";
-      },
-    };
-
-    function criarTooltipBox(element) {
-      const tooltipBox = document.createElement("div");
-      const texto = element.getAttribute("aria-label");
-      tooltipBox.classList.add("tooltip");
-      tooltipBox.innerText = texto;
-      document.body.appendChild(tooltipBox);
-      return tooltipBox;
+  }
+  onMouseLeave({ target }) {
+    this.tooltipBox.remove();
+    target.removeEventListener("mouseleave", this.onMouseLeave);
+    target.removeEventListener("mousemove", this.onMouseMove);
+  }
+  criarTooltipBox(element) {
+    const tooltipBox = document.createElement("div");
+    const text = element.getAttribute("aria-label");
+    tooltipBox.classList.add("tooltip");
+    tooltipBox.innerText = text;
+    document.body.appendChild(tooltipBox);
+    this.tooltipBox = tooltipBox;
+  }
+  onMouseOver({ currentTarget }) {
+    this.criarTooltipBox(currentTarget);
+    currentTarget.addEventListener("mousemove", this.onMouseMove);
+    currentTarget.addEventListener("mouseleave", this.onMouseLeave);
+  }
+  addTooltipsEvent() {
+    this.tooltips.forEach((item) => {
+      item.addEventListener("mouseover", this.onMouseOver);
+    });
+  }
+  init() {
+    if (this.tooltips.length) {
+      this.addTooltipsEvent();
     }
-
-    tooltip.addEventListener("mouseover", onMouseOver);
+    return this;
   }
 }
