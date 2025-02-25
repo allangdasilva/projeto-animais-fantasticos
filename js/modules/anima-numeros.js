@@ -1,6 +1,8 @@
-export default function initAnimaNumeros() {
-  const numeros = document.querySelectorAll("[data-numero]");
-  numeros.forEach((numero) => {
+export default class AnimaNumeros {
+  constructor(numeros) {
+    this.numeros = document.querySelectorAll(numeros);
+  }
+  static incrementarNumero(numero) {
     const num = Number(numero.innerHTML);
     const icremento = Math.floor(num / 100);
     let i = 0;
@@ -13,5 +15,16 @@ export default function initAnimaNumeros() {
         clearInterval(timer);
       }
     }, 25 * Math.random());
-  });
+  }
+  animaNumeroEvent() {
+    this.numeros.forEach((numero) => {
+      this.constructor.incrementarNumero(numero);
+    });
+  }
+  init() {
+    if (this.numeros.length) {
+      this.animaNumeroEvent();
+    }
+    return this;
+  }
 }
