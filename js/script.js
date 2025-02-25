@@ -2,7 +2,7 @@ import TabNav from "./modules/tab.js";
 import Accordion from "./modules/accordion.js";
 import ScrollSmooth from "./modules/scroll-smooth.js";
 import initiShowSections from "./modules/show-sections.js";
-import initiModal from "./modules/modal.js";
+import Modal from "./modules/modal.js";
 import initiTooltip from "./modules/tooltip.js";
 import initiDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
@@ -22,8 +22,14 @@ const tabNav = new TabNav(
 );
 tabNav.init();
 
+const modal = new Modal(
+  '[data-modal="abrir"]',
+  '[data-modal="fechar"]',
+  '[data-modal="container"]'
+);
+modal.init();
+
 initiShowSections();
-initiModal();
 initiTooltip();
 initiDropdownMenu();
 initMenuMobile();
