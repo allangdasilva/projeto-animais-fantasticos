@@ -1,8 +1,7 @@
-export default function initiShowSections() {
-  const sections = document.querySelectorAll("[data-anime='scroll']");
-
-  if (sections.length) {
-    const observador = new IntersectionObserver((sEle) => {
+export default class ShowSection {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.observador = new IntersectionObserver((sEle) => {
       sEle.forEach((ele) => {
         if (ele.isIntersecting) {
           ele.target.classList.add("ativo");
@@ -11,9 +10,16 @@ export default function initiShowSections() {
         }
       });
     });
-
-    sections.forEach((ele) => {
-      observador.observe(ele);
+  }
+  observeEvent() {
+    this.sections.forEach((ele) => {
+      this.observador.observe(ele);
     });
+  }
+  init() {
+    if (this.sections.length) {
+      this.observeEvent();
+    }
+    return this;
   }
 }
