@@ -2,6 +2,9 @@ export default class AnimaNumeros {
   constructor(numeros) {
     this.numeros = document.querySelectorAll(numeros);
   }
+
+  // Recebe um elemento do dom, com número em seu texto
+  // incrementa a partir de 0 até o número final
   static incrementarNumero(numero) {
     const num = Number(numero.innerHTML);
     const icremento = Math.floor(num / 100);
@@ -16,6 +19,8 @@ export default class AnimaNumeros {
       }
     }, 25 * Math.random());
   }
+  // Ativa incrementar número para cada
+  // número selecionado do dom
   animaNumeroEvent() {
     this.numeros.forEach((numero) => {
       this.constructor.incrementarNumero(numero);

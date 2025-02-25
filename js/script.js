@@ -10,17 +10,20 @@ import Funcionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
 import fetchBitcoin from "./modules/fetch-bitcoin.js";
 
-const scrollSmooth = new ScrollSmooth('[data-menu="smooth"] a[href^="#"]');
-scrollSmooth.init();
-
-const accordion = new Accordion("[data-faq='accordion'] dt");
-accordion.init();
-
 const tabNav = new TabNav(
   "[data-tab='menu'] li",
   "[data-tab='content'] section"
 );
 tabNav.init();
+
+const accordion = new Accordion("[data-faq='accordion'] dt");
+accordion.init();
+
+const scrollSmooth = new ScrollSmooth('[data-menu="smooth"] a[href^="#"]');
+scrollSmooth.init();
+
+const showSections = new ShowSections("[data-anime='scroll']");
+showSections.init();
 
 const modal = new Modal(
   '[data-modal="abrir"]',
@@ -32,9 +35,6 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
-const showSection = new ShowSections("[data-anime='scroll']");
-showSection.init();
-
 const dropdownMenu = new DropdownMenu("[data-dropdown]");
 dropdownMenu.init();
 
@@ -44,6 +44,6 @@ menuMobile.init();
 const funcionamento = new Funcionamento("[data-semana]", "aberto");
 funcionamento.init();
 
-fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");
+fetchAnimais("../animaisapi.json", ".numeros-grid");
 
-fetchAnimais("../../animaisapi.json", ".numeros-grid");
+fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");

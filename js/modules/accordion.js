@@ -18,6 +18,8 @@ export default class Accordion {
   init() {
     if (this.accordionList.length) {
       this.addAccordionEvent();
+
+      // ativar primeiro item
       this.accordionList[0].classList.add(this.classActive);
       this.accordionList[0].nextElementSibling.classList.add(this.classActive);
     }
