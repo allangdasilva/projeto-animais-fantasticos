@@ -192,8 +192,9 @@ body {
     grid-column: 1;
   }
   .grid-section {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 200px 1fr;
     grid-gap: 10px;
+    margin-bottom: 2rem;
   }
   .animais-lista {
     grid-column: 1;
@@ -211,6 +212,11 @@ body {
   }
   .copy {
     margin-bottom: 0px;
+  }
+}
+@media (max-width: 500px) {
+  .grid-section {
+    grid-template-columns: 100px 1fr;
   }
 }
 
@@ -247,11 +253,18 @@ body {
 }
 
 .js [data-faq="accordion"] dt::after {
-  content: "⬎";
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
   margin-left: 10px;
+  transform: rotate(90deg);
+  background: url("../img/arrow-red.svg") center center no-repeat;
+  transition: transform 0.3s;
 }
 .js [data-faq="accordion"] dt.ativo::after {
-  content: "⬏";
+  content: "";
+  transform: rotate(-90deg);
 }
 .js [data-faq="accordion"] dd {
   display: none;
@@ -299,4 +312,10 @@ body {
   padding: 0.2rem 0.5rem;
   font-weight: bold;
   border-radius: 2px;
+}
+.arrow-black {
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+  background: url("../img/arrow-black.svg") center center no-repeat;
 }
