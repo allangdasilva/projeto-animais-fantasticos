@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animais Fantásticos</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Playfair+Display+SC"
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700|Playfair+Display+SC"
       rel="stylesheet"
     />
     <script>
       document.documentElement.className += " js";
     </script>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="preload" type="text/css" href="./css/style.min.css" as="style" />
+    <link rel="stylesheet" type="text/css" href="./css/style.min.css" />
   </head>
   <body>
     <div class="grid-container">
@@ -35,7 +36,9 @@
           <li><a href="#faq">Faq</a></li>
           <li><a href="#contato">Contato</a></li>
           <li>
-            <a href="login.html" data-modal="abrir">Login →</a>
+            <a href="login.html" data-modal="abrir"
+              >Login <span class="arrow-black"></span
+            ></a>
           </li>
         </ul>
       </nav>
@@ -44,22 +47,22 @@
         <h1 class="titulo">Animais Fantásticos</h1>
         <ul class="animais-lista" data-tab="menu">
           <li>
-            <img src="img/imagem1.jpg" width="600" height="800" />
+            <img src="img/imagem1.jpg" width="600" height="800" alt="Raposa" />
           </li>
           <li>
-            <img src="img/imagem2.jpg" width="600" height="800" />
+            <img src="img/imagem2.jpg" width="600" height="800" alt="Esquilo" />
           </li>
           <li>
-            <img src="img/imagem3.jpg" width="600" height="800" />
+            <img src="img/imagem3.jpg" width="600" height="800" alt="Urso" />
           </li>
           <li>
-            <img src="img/imagem4.jpg" width="600" height="800" />
+            <img src="img/imagem4.jpg" width="600" height="800" alt="Lobo" />
           </li>
           <li>
-            <img src="img/imagem5.jpg" width="600" height="800" />
+            <img src="img/imagem5.jpg" width="600" height="800" alt="Babuíno" />
           </li>
           <li>
-            <img src="img/imagem6.jpg" width="600" height="800" />
+            <img src="img/imagem6.jpg" width="600" height="800" alt="Leão" />
           </li>
         </ul>
         <div class="animais-descricao" data-tab="content">
@@ -194,7 +197,7 @@
       </section>
 
       <section class="grid-section faq" data-anime="scroll" id="faq">
-        <h2 class="titulo">FAQ</h2>
+        <h1 class="titulo">FAQ</h1>
         <dl class="faq-lista" data-faq="accordion">
           <dt>Qual a idade dos animais?</dt>
           <dd>
@@ -223,21 +226,106 @@
 
       <section class="grid-section galeria" data-anime="scroll">
         <ul class="custom-controls">
-          <li><img src="./img/slide/foto1-thumb.jpg" alt="" /></li>
-          <li><img src="./img/slide/foto2-thumb.jpg" alt="" /></li>
-          <li><img src="./img/slide/foto3-thumb.jpg" alt="" /></li>
-          <li><img src="./img/slide/foto4-thumb.jpg" alt="" /></li>
-          <li><img src="./img/slide/foto5-thumb.jpg" alt="" /></li>
-          <li><img src="./img/slide/foto6-thumb.jpg" alt="" /></li>
+          <li>
+            <img
+              src="./img/slide/foto1-thumb.jpg"
+              alt="Raposa"
+              width="400"
+              height="400"
+            />
+          </li>
+          <li>
+            <img
+              src="./img/slide/foto2-thumb.jpg"
+              alt="Esquilo"
+              width="400"
+              height="400"
+            />
+          </li>
+          <li>
+            <img
+              src="./img/slide/foto3-thumb.jpg"
+              alt="Urso"
+              width="400"
+              height="400"
+            />
+          </li>
+          <li>
+            <img
+              src="./img/slide/foto4-thumb.jpg"
+              alt="Lobo"
+              width="400"
+              height="400"
+            />
+          </li>
+          <li>
+            <img
+              src="./img/slide/foto5-thumb.jpg"
+              alt="Babuíno"
+              width="400"
+              height="400"
+            />
+          </li>
+          <li>
+            <img
+              src="./img/slide/foto6-thumb.jpg"
+              alt="Leão"
+              width="400"
+              height="400"
+            />
+          </li>
         </ul>
+
         <div class="slide-wrapper">
           <ul class="slide">
-            <li><img src="./img/slide/foto1.jpg" alt="" /></li>
-            <li><img src="./img/slide/foto2.jpg" alt="" /></li>
-            <li><img src="./img/slide/foto3.jpg" alt="" /></li>
-            <li><img src="./img/slide/foto4.jpg" alt="" /></li>
-            <li><img src="./img/slide/foto5.jpg" alt="" /></li>
-            <li><img src="./img/slide/foto6.jpg" alt="" /></li>
+            <li>
+              <img
+                src="./img/slide/foto1.jpg"
+                alt="Raposa"
+                width="1200"
+                height="700"
+              />
+            </li>
+            <li>
+              <img
+                src="./img/slide/foto2.jpg"
+                alt="Esquilo"
+                width="1200"
+                height="700"
+              />
+            </li>
+            <li>
+              <img
+                src="./img/slide/foto3.jpg"
+                alt="Urso"
+                width="1200"
+                height="700"
+              />
+            </li>
+            <li>
+              <img
+                src="./img/slide/foto4.jpg"
+                alt="Lobo"
+                width="1200"
+                height="700"
+              />
+            </li>
+            <li>
+              <img
+                src="./img/slide/foto5.jpg"
+                alt="Babuíno"
+                width="1200"
+                height="700"
+              />
+            </li>
+            <li>
+              <img
+                src="./img/slide/foto6.jpg"
+                alt="Leão"
+                width="1200"
+                height="700"
+              />
+            </li>
           </ul>
         </div>
       </section>
@@ -248,7 +336,7 @@
       </section>
 
       <section class="grid-section contato" data-anime="scroll" id="contato">
-        <h2 class="titulo">Contato</h2>
+        <h1 class="titulo">Contato</h1>
         <div
           class="mapa"
           data-tooltip
@@ -275,7 +363,7 @@
 
     <section class="modal-container" data-modal="container">
       <div class="modal">
-        <button data-modal="fechar" class="fechar">X</button>
+        <button data-modal="fechar" class="fechar"></button>
         <form action="">
           <label for="email">Email</label>
           <input type="text" for="email" id="email" />
